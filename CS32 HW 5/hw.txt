@@ -1,0 +1,71 @@
+1.
+a. 
+        50
+   20          60
+10    40          70
+  15 30        65    80 
+    25 35	    75
+
+b.
+inorder: 10, 15, 20, 25, 30, 35, 40, 50, 60, 65, 70, 75, 80
+preorder: 50, 20, 10, 15, 40, 30, 25, 35, 60, 70, 65, 80, 75
+postorder: 15, 10, 25, 35, 30, 40, 20, 65, 75, 80, 70, 60, 50
+c.
+        50
+   20          60
+10    40          70
+  15 25        65    80 
+      35	    75
+
+
+        50
+   25          60
+10    40          70
+  15 35        65    80 
+      		    75
+
+2. 
+a. 
+struct Node
+{
+	int m_val;
+	Node* l_child;
+	Node* r_child;
+	Node* m_parent;
+};
+
+b. 
+void insert(Node* root, int value, Node* cur)
+{
+if curr is nullptr
+	create a new BSTNode with the data as the value, the parent pointer being set to parent
+	and the left and right children to be set as nullptr
+else if curr's value is less than the value passed in
+	insert(curr's left child, value, cur)
+else ifcurr's value is greater than the value passed in
+	insert(curr's right child, value, cur)
+}
+
+3. 
+a.
+     8
+  3    6
+0  2  4
+
+b.
+8 3 6 0 2 4 
+count 6
+
+c. 
+6 3 4 0 2
+
+4.
+a. O(C+S)
+b. O(log(C) + S)
+c. O(log(C) + log(S))
+d. O(log(S))
+e. O(1)
+f. O(log(C) + S)
+g. O(SlogS)
+h. O(Clog(S))
+

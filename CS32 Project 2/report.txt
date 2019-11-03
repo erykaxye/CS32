@@ -1,0 +1,106 @@
+I used a head pointer and a tail pointer in my Map class as member variables. Each Node contains a prev and next pointer as well as a KeyType and ValueType. They are not in any particular order. 
+
+Pseudocode: 
+
+erase
+if map is empty
+	return false; 
+if map contains key
+	if head 
+		delete head, set new head
+	else if tail
+		delete tail, set new tail
+	else if map has only 1 node
+		delete head and set head and tail to null
+	else 
+		run through list until u get to p
+		if p is in the list 
+		delete p and fix the ends 
+else 
+return false; 
+
+combine 
+if the two maps are the same
+	make result m1 and return true
+make temporary maps of m1 and m2
+swap temp m1 and result 
+make bool match true 
+
+loop through map 
+	get key and value 
+	if result doesn't contain that key
+	add to result
+	else see if the values match 
+		if they match, erase key
+		set match to false
+
+returns match;
+
+subtract 
+if the two maps are the same
+	make result m1 and return true
+make temporary maps of m1 and m2 and a empty map
+swap empty map and result 
+
+loop through temp 1
+	get value and key 
+	if temp of m2 doesnt contain the key 
+		add to result 
+
+
+Test Cases: 
+KeyType str = "one"; 
+	ValueType n = 7.0;
+	KeyType wstr = "three";
+	
+	Map m; 
+	assert(m.empty()); //test empty
+	assert(m.size() == 0); //test size
+	assert(m.insert("one", 1.0)); //test insert
+	assert(m.size() == 1.0); //test size
+	assert(!m.empty()); //test not empty
+	assert(m.update("one", 2.0)); //test update
+	assert(m.insertOrUpdate("one", 3.0)); //test update part
+	assert(m.insertOrUpdate("two", 4.0)); //test insert part
+	assert(m.contains("one")); //test contains 
+	assert(m.get(str, n)); //test first get function 
+	assert(!m.get(wstr, n)); //key thats not in list 
+	assert(m.get(1, str, n)); //tests 2nd get fucntion
+	assert(!m.get(6, wstr, n)); //test a key not in list
+	assert(m.erase("two")); //test erase
+	assert(m.contains("one"));
+	assert(!m.contains("two"));
+
+	Map o; 
+	assert(o.insert("ten", 10.0));
+	assert(o.insert("eleven", 11.0)); 
+	m.swap(o); //test swap
+	KeyType k;
+	ValueType v;
+	for (int i = 0; i < m.size(); i++)
+	{
+		m.get(i, k, v);
+		cerr << k << ' ' << v << endl;
+	}
+
+	Map e; 
+	assert(e.insert("tweleve", 12.0));
+	assert(combine(m, o, e)); //test combine
+	KeyType l;
+	ValueType w;
+
+	for (int j = 0; j < e.size(); j++)
+	{
+		e.get(j, l, w);
+		cerr << l << ' ' << w << endl;
+	}
+
+	assert(subtract(m, o, e); //test subtract 
+
+	for (int j = 0; j < e.size(); j++)
+	{
+		e.get(j, l, w);
+		cerr << l << ' ' << w << endl;
+	}
+
+	cerr << "Passed all tests my dudes!!" << endl;

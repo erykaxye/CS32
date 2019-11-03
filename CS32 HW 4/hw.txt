@@ -1,0 +1,10 @@
+2. Coord is a class the user defined and there is no definition for the operators using that class. Functions in Map use comparisons operators and that doesn't work with Coord.
+
+3. 
+b) The function needs two parameters because the recursion needs to know what is being acted on and what the path followed so far is.
+
+4. 
+a) O(n^3) because it has 3 nested loops and in the worst case it would go through all of them = n*n*n
+b) O(n^3) n*n*n because in the worst case it can still go through all the loops 
+
+5) O(n^2) because it has a loop that goes through (0, n-1) items and it calls either insert or erase (and in the worst case they go through all n items) = n*(n+n). 
